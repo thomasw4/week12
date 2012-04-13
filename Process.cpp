@@ -1,0 +1,54 @@
+
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+#include <iostream>
+#include "Process.hpp"
+
+//Calls to fork and exec for the constructor
+//Call to wait for deconstructor
+
+
+//The extra bool argument can be used to enable verbose messages
+Process::Process(const std::vector<char*>&, bool verbose)
+{
+    m_pid = fork();
+    m_pid = fork();
+    //int n_pid = fork();
+  
+  //  std::cout<<"This is the constructor with extra bool" << std::endl;
+    std::cout <<"The process being forked = " << m_pid << std::endl;
+  //  std::cout <<"The n_pid = " << n_pid << std::endl;
+    
+}
+
+Process::Process(const std::vector<char*>&)
+{
+    m_pid = fork();
+    std::cout<<"This is the constructor with no bool" << std::endl;
+}
+
+
+// prevent copying and assignment
+Process::Process(const Process &p)
+{
+    m_pid = fork();
+    std::cout << "This is the constructor to prevent copying and assignment" << std::endl;
+    
+}
+
+//Implement a move constructor 
+
+Process::Process(Process& other) 
+{
+  std::cout << "This is the constructor that moves, but I have implemented nothing here yet" << std::endl;
+}
+
+Process::~Process(){
+      //m_pid = 
+      m_pid = wait(&m_status);
+      exit(m_status);
+}
+
+
+

@@ -1,0 +1,7 @@
+
+
+Thomas Walton
+
+
+In class exercise for week 12, I did the best I could.  I am not sure what exactly you were expecting, but it compiles using make creating an executable name process_test.
+ The first constructor executes the two fork commands and then closes. 
